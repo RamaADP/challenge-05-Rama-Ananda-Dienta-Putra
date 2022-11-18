@@ -1,0 +1,29 @@
+<div class="row"> 
+    <% cars.forEach(car => { %>
+    <div class="col-4">
+        <div class="card mt-3 ms-0" style="width: 28rem;">
+            <div class="card-body text-start">
+                <img src="./mobil.jpg"  class="mt-5 mb-5" style="width: 100%;"/>
+                <h5 class="card-title fs-6"><%= car.nama %></h5>
+                <p class="card-text fw-bold fs-5">Rp<%= car.biaya %>/hari</p>
+                <p class="card-text">
+                    <i class="bi bi-clock"></i>
+                    Updated at 4 Apr 2022, 09.00
+                </p>
+                <div class="d-flex justify-content-around">
+                    <form action="/?_method=DELETE" method="POST">
+                        <input type="hidden" name="nama" value="<%= car.nama %>" />
+                        <button type="submit" class="btn btn-danger p-3 me-1" style="width: 100%;"
+                        onclick="return confirm('Are You Sure?')">Delete</button> 
+                    </form>
+                    
+                    <a href= "./editCar/<%= car.nama %>" type="button" class="btn btn-success p-3 ms-1" style="width: 100%;">
+                        <i class="bi bi-pencil-square me-3"></i>
+                        Edit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }) %>
+</div>
